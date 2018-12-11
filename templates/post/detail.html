@@ -1,0 +1,46 @@
+
+{% extends  'base.html' %}
+
+{% block body %}
+
+
+    <style xmlns="http://www.w3.org/1999/html">
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #3437dd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #95dd38;
+}
+</style>
+
+
+<div class="container">
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+<div class="thumbnail">
+<div class="caption">
+    {% if post.image %}
+    <img src="{{ post.image.url }}" class="img-responsive">
+    {% endif %}
+    <h3>{{ post.title }}</h3><small>{{ post.publising_date }}</small></h3>
+    <p>{{ post.content|linebreaks }}</p>
+    <p><a href="{{ post.get_absolute_url }}" class="btn btn-primary" role="button">incele</a>
+        <a href="{{ post.get_update_url }}" class="btn btn-secondary" role="button">Yenile</a>
+        <a href="{{ post.get_delete_url }}" class="btn btn-danger" role="button">SIL</a>
+    </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}
